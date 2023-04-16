@@ -17,6 +17,7 @@ An OpenAI API proxy running with Cloudflare worker.
 # Setup
 ## 1. Prepare your domain name
 - Please make sure that the nameservers of your domain is set to the nameservers provided by Cloudflare first. [Manual](https://developers.cloudflare.com/dns/zone-setups/full-setup/setup/)
+
 ## 2. Create a new service
 1. Log in to your [Cloudflare Dashboard](https://dash.cloudflare.com/) and navigate to the Workers section.
 2. Click on the "Create a Service" button.
@@ -26,7 +27,7 @@ An OpenAI API proxy running with Cloudflare worker.
 
 Now you have the new service created and it shows you the detail of the service.
 
-## 3. Config the new created service - Trigger
+## 3. Configure the newly created service - Trigger
 1. Click "Triggers" on the tab bar.
 2. Click "Add Custom Domain" button.
 3. Input the domain you want to use, such as `gpt.mydomainname.com`. Don't worry, Cloudflare can automatically configure the proper DNS settings for this.
@@ -34,7 +35,7 @@ Now you have the new service created and it shows you the detail of the service.
 
 Don't leave the detail page and go on.
 
-## 4. Config the new created service - Environment Variables
+## 4. Configure the newly created service - Environment Variables
 1. Click "Settings" on the tab bar.
 2. Click "Variables" from the right part.
 3. In "Environment Variables", Click "Add Variable" button.
@@ -43,7 +44,7 @@ Don't leave the detail page and go on.
    - Key `ACCESS_TOKEN`, value is any random string like a password.
    Again, both of these pieces of information are very sensitive, so it is strongly recommended to turn on the "Encrypt" option. This way, after you save them, no one will be able to see their values again.
 
-## 4. Config the new created service - KV Storage
+## 5. Configure the newly created service - KV Storage
 1. Expand "Workers" in right sidebar.
 2. Click "KV".
 3. In "Workers KV", Click "Create a namespace" button.
@@ -55,7 +56,7 @@ Don't leave the detail page and go on.
 9. Input `KV` (UPPERCASE) in the left, and choose new KV namespace created in step 4.
 10. Click "Save and deploy" button.
 
-## 5. Config the new created service - Code
+## 6. Configure the newly created service - Code
 1. Open the [raw code of worker.js](https://raw.githubusercontent.com/janlay/openai-cloudflare/master/worker.js).
 2. Copy all of the code.
 3. Go back to the detail page of the new created service.
