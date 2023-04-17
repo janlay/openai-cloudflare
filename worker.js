@@ -45,10 +45,12 @@ async function proxy(request, env) {
   // 2. replace with the real API key
   headers.set(authKey, `Bearer ${env.OPENAPI_API_KEY}`);
   // 3. issue the underlying request
+  // Only pass body if request method is not 'GET'
+  const requestBody = request.method !== 'GET' ? JSON.stringify(await request.json()) : null;
   return fetch(url, {
     method: request.method,
     headers: headers,
-    body: JSON.stringify(await request.json()),
+    body: requestBody,
   });
 }
 
